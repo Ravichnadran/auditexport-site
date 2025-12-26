@@ -5,7 +5,6 @@
   <title>AuditExport – Automated Compliance Evidence</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Clean system fonts (enterprise feel) -->
   <style>
     body {
       margin: 0;
@@ -31,7 +30,7 @@
     }
 
     header p {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0.5rem auto 0;
       font-size: 1.1rem;
       color: #d1d5db;
@@ -74,6 +73,15 @@
       gap: 24px;
     }
 
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+    }
+
     .price {
       font-size: 2rem;
       font-weight: 600;
@@ -94,6 +102,12 @@
 
     .buy-btn:hover {
       background: #1f2937;
+    }
+
+    .docs-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-weight: 500;
     }
 
     footer {
@@ -133,7 +147,22 @@
     </ul>
   </div>
 
-  <!-- Supported + Roadmap -->
+  <!-- CLI Example -->
+  <div class="card">
+    <h2>CLI usage example</h2>
+    <pre>
+./auditexport \
+  --audit ISO27001 \
+  --github \
+  --output ./evidence
+    </pre>
+    <p>
+      The command generates immutable evidence artifacts in the specified
+      output directory, suitable for audit review.
+    </p>
+  </div>
+
+  <!-- Supported + Docs -->
   <div class="grid">
     <div class="card">
       <h2>Supported in v0.1.1</h2>
@@ -146,13 +175,31 @@
     </div>
 
     <div class="card">
-      <h2>Roadmap</h2>
-      <ul>
-        <li>GitLab and Bitbucket collectors</li>
-        <li>AWS and cloud infrastructure evidence</li>
-        <li>Additional audit and compliance standards</li>
-      </ul>
+      <h2>Documentation</h2>
+      <p>
+        Full usage instructions, options, and examples are available in the
+        official documentation.
+      </p>
+      <a class="docs-link" href="https://github.com/your-org/auditexport#readme" target="_blank">
+        → View Documentation
+      </a>
     </div>
+  </div>
+
+  <!-- Integrity / Checksums -->
+  <div class="card">
+    <h2>Release integrity</h2>
+    <p>
+      Each release includes cryptographic checksums to verify integrity
+      after download.
+    </p>
+    <pre>
+sha256sum auditexport-v0.1.1-macos.zip
+sha256sum auditexport-v0.1.1-linux-x86_64.zip
+    </pre>
+    <p>
+      Checksums are published alongside each release.
+    </p>
   </div>
 
   <!-- Pricing -->
