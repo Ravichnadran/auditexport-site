@@ -4,71 +4,185 @@
   <meta charset="UTF-8">
   <title>AuditExport</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue",
+                   Arial, sans-serif;
+      background: #f4f6f8;
+      color: #111;
+    }
+
+    header {
+      background: #1f2933;
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      max-width: 640px;
+      margin: 0.5rem auto;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: -40px auto 40px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 6px;
+      padding: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.4rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .price {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    .buy-btn {
+      margin-top: 1rem;
+      padding: 14px 22px;
+      font-size: 1rem;
+      background: #111;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .buy-btn:hover {
+      background: #333;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #555;
+      padding: 20px;
+    }
+  </style>
 </head>
+
 <body>
 
+<header>
   <h1>AuditExport</h1>
   <p><strong>Generate ISO/IEC 27001 GitHub audit evidence automatically.</strong></p>
   <p>
     A minimal CLI tool for engineering and compliance teams to produce
     audit-ready technical evidence — fast, local, and deterministic.
   </p>
+</header>
 
-  <h2>What it does</h2>
-  <ul>
-    <li>Collects GitHub repository metadata using read-only access</li>
-    <li>Exports immutable JSON evidence files</li>
-    <li>Generates summaries, metadata, and hashes</li>
-    <li>Packages evidence into an audit-ready ZIP</li>
-    <li>Runs locally — no SaaS, no data upload</li>
-  </ul>
+<div class="container">
 
-  <h2>Supported in v0.1.1</h2>
-  <ul>
-    <li>ISO/IEC 27001</li>
-    <li>GitHub evidence collection (read-only)</li>
-    <li>Linux (x86_64) and macOS</li>
-    <li>Local execution only</li>
-  </ul>
+  <!-- WHAT IT DOES (FULL WIDTH) -->
+  <div class="section card">
+    <h2>What it does</h2>
+    <ul>
+      <li>Collects GitHub repository metadata using read-only access</li>
+      <li>Exports immutable JSON evidence files</li>
+      <li>Generates summaries, metadata, and hashes</li>
+      <li>Packages evidence into an audit-ready ZIP</li>
+      <li>Runs locally — no SaaS, no data upload</li>
+    </ul>
+  </div>
 
-  <h2>Price</h2>
-  <p><strong>$79 — one-time license</strong></p>
-  <p>No subscriptions. No lock-in.</p>
+  <!-- SUPPORTED + ROADMAP (SIDE BY SIDE) -->
+  <div class="section grid">
+    <div class="card">
+      <h2>Supported in v0.1.1</h2>
+      <ul>
+        <li>ISO/IEC 27001</li>
+        <li>GitHub evidence collection (read-only)</li>
+        <li>Linux (x86_64) and macOS</li>
+        <li>Local execution only</li>
+      </ul>
+    </div>
 
-  <h2>Buy</h2>
-  <p>
+    <div class="card">
+      <h2>Roadmap</h2>
+      <ul>
+        <li>GitLab and Bitbucket collectors</li>
+        <li>AWS evidence collectors</li>
+        <li>Additional audit standards</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PRICE / BUY (FOCUS SECTION) -->
+  <div class="section card">
+    <h2>Price</h2>
+    <p class="price">$79 — one-time license</p>
+    <p>No subscriptions. No lock-in.</p>
+
     <a href="LEMON_CHECKOUT_URL" target="_blank">
-      <button>Buy AuditExport v0.1.1 ($79)</button>
+      <button class="buy-btn">Buy AuditExport v0.1.1 ($79)</button>
     </a>
-  </p>
+  </div>
 
-  <h2>Roadmap</h2>
-  <ul>
-    <li>GitLab and Bitbucket collectors</li>
-    <li>AWS evidence collectors</li>
-    <li>Additional audit standards</li>
-  </ul>
+  <!-- REFUND + CONTACT (SIDE BY SIDE) -->
+  <div class="section grid">
+    <div class="card">
+      <h2>Refunds</h2>
+      <p>
+        Refunds are available within <strong>7 days of purchase</strong>
+        if the software does not function as described.
+      </p>
+    </div>
 
-  <h2>Refunds</h2>
-  <p>
-    Refunds are available within <strong>7 days of purchase</strong>
-    if the software does not function as described.
-  </p>
+    <div class="card">
+      <h2>Contact</h2>
+      <p>
+        Email:
+        <a href="mailto:support@auditexport.com">support@auditexport.com</a>
+      </p>
+    </div>
+  </div>
 
-  <h2>Contact</h2>
-  <p>
-    Email: <a href="mailto:support@auditexport.com">support@auditexport.com</a>
-  </p>
+</div>
 
-  <hr>
-
-  <p>
-    <small>
-      AuditExport generates technical evidence only.<br>
-      It does not analyze compliance, provide legal advice,
-      or issue pass/fail judgments.
-    </small>
-  </p>
+<footer>
+  AuditExport generates technical evidence only.<br>
+  It does not analyze compliance, provide legal advice,
+  or issue pass/fail judgments.
+</footer>
 
 </body>
 </html>
