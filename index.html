@@ -9,30 +9,30 @@
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue",
-                   Arial, sans-serif;
+        Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue",
+        Arial, sans-serif;
       background: #f5f7fa;
       color: #111827;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     header {
       background: #111827;
       color: #ffffff;
-      padding: 64px 20px;
+      padding: 72px 20px;
       text-align: center;
     }
 
     header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
+      font-size: 3rem;
+      margin-bottom: 0.75rem;
       font-weight: 600;
     }
 
     header p {
       max-width: 760px;
-      margin: 0.5rem auto 0;
-      font-size: 1.1rem;
+      margin: 0 auto;
+      font-size: 1.15rem;
       color: #d1d5db;
     }
 
@@ -44,16 +44,16 @@
 
     .card {
       background: #ffffff;
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 32px;
-      margin-bottom: 32px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-bottom: 28px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       border: 1px solid #e5e7eb;
     }
 
     h2 {
       margin-top: 0;
-      font-size: 1.4rem;
+      font-size: 1.45rem;
       border-bottom: 1px solid #e5e7eb;
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
@@ -64,13 +64,7 @@
     }
 
     li {
-      margin-bottom: 0.5rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
+      margin-bottom: 0.55rem;
     }
 
     pre {
@@ -82,8 +76,33 @@
       font-size: 0.9rem;
     }
 
+    details {
+      margin-bottom: 24px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 600;
+      list-style: none;
+    }
+
+    summary::marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "▾";
+      float: right;
+      color: #6b7280;
+    }
+
+    details[open] summary::after {
+      content: "▴";
+    }
+
     .price {
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 600;
       margin: 0.5rem 0;
     }
@@ -91,30 +110,25 @@
     .buy-btn {
       display: inline-block;
       margin-top: 1rem;
-      padding: 14px 24px;
+      padding: 14px 26px;
       font-size: 1rem;
       background: #111827;
       color: #ffffff;
       border: none;
       cursor: pointer;
       text-decoration: none;
+      border-radius: 4px;
     }
 
     .buy-btn:hover {
       background: #1f2937;
     }
 
-    .docs-link {
-      display: inline-block;
-      margin-top: 0.5rem;
-      font-weight: 500;
-    }
-
     footer {
       text-align: center;
       font-size: 0.85rem;
       color: #6b7280;
-      padding: 30px 20px;
+      padding: 32px 20px;
     }
 
     a {
@@ -128,28 +142,29 @@
 <header>
   <h1>AuditExport</h1>
   <p>
-    Generate audit-ready technical evidence for ISO/IEC 27001  
-    directly from your GitHub repositories.
+    Generate audit-ready technical evidence for ISO/IEC 27001
+    directly from your GitHub repositories — locally, securely,
+    and deterministically.
   </p>
 </header>
 
 <div class="container">
 
-  <!-- What it does -->
+  <!-- CORE VALUE -->
   <div class="card">
-    <h2>What it does</h2>
+    <h2>What AuditExport does</h2>
     <ul>
-      <li>Collects GitHub repository metadata using read-only access</li>
-      <li>Exports immutable JSON evidence files</li>
-      <li>Generates summaries, metadata, and cryptographic hashes</li>
-      <li>Packages evidence into audit-ready ZIP files</li>
-      <li>Runs locally — no SaaS, no data upload</li>
+      <li>Collects GitHub repository evidence using read-only access</li>
+      <li>Generates immutable JSON evidence and summaries</li>
+      <li>Produces cryptographic hashes for integrity verification</li>
+      <li>Packages outputs into audit-ready ZIP files</li>
+      <li>Runs locally — no SaaS, no data uploads</li>
     </ul>
   </div>
 
-  <!-- CLI Example -->
+  <!-- CLI EXAMPLE (VISIBLE) -->
   <div class="card">
-    <h2>CLI usage example</h2>
+    <h2>CLI usage</h2>
     <pre>
 ./auditexport \
   --audit ISO27001 \
@@ -157,92 +172,154 @@
   --output ./evidence
     </pre>
     <p>
-      The command generates immutable evidence artifacts in the specified
-      output directory, suitable for audit review.
+      The command produces deterministic, locally generated
+      audit artifacts suitable for auditor review.
     </p>
   </div>
 
-  <!-- Supported + Docs -->
-  <div class="grid">
-    <div class="card">
-      <h2>Supported in v0.1.1</h2>
-      <ul>
-        <li>ISO/IEC 27001 evidence generation</li>
-        <li>GitHub evidence collection (read-only)</li>
-        <li>Linux (x86_64) and macOS</li>
-        <li>Local execution only</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>Documentation</h2>
-      <p>
-        Full usage instructions, options, and examples are available in the
-        official documentation.
-      </p>
-      <a class="docs-link" href="https://github.com/your-org/auditexport#readme" target="_blank">
-        → View Documentation
-      </a>
-    </div>
-  </div>
-
-  <!-- Integrity / Checksums -->
-  <div class="card">
-    <h2>Release integrity</h2>
+  <!-- COLLAPSIBLE: OUTPUT -->
+  <details class="card">
+    <summary>Sample output structure</summary>
+    <pre>
+evidence/
+├── metadata/
+│   └── run_metadata.json
+├── github/
+│   ├── repositories.json
+│   ├── branches.json
+│   └── contributors.json
+├── summary.txt
+├── hashes.txt
+└── evidence.zip
+    </pre>
     <p>
-      Each release includes cryptographic checksums to verify integrity
-      after download.
+      All outputs are timestamped, immutable,
+      and generated locally.
     </p>
+  </details>
+
+  <!-- COLLAPSIBLE: SECURITY -->
+  <details class="card">
+    <summary>Security & trust model</summary>
+    <ul>
+      <li>Runs entirely on your machine or CI environment</li>
+      <li>Uses GitHub read-only tokens only</li>
+      <li>No credentials stored on disk</li>
+      <li>No third-party data transmission</li>
+      <li>Minimal security review footprint</li>
+    </ul>
+  </details>
+
+  <!-- COLLAPSIBLE: WHO -->
+  <details class="card">
+    <summary>Who should use AuditExport</summary>
+    <ul>
+      <li>Engineering teams preparing for ISO/IEC 27001 audits</li>
+      <li>DevOps teams producing repeatable audit evidence</li>
+      <li>SaaS companies onboarding enterprise customers</li>
+      <li>Security & compliance engineers</li>
+      <li>Consultants supporting audit readiness</li>
+    </ul>
+    <p>
+      AuditExport is designed for organizations that
+      already have controls in place and need
+      reliable technical evidence.
+    </p>
+  </details>
+
+  <!-- COLLAPSIBLE: FAQ -->
+  <details class="card">
+    <summary>Frequently asked questions</summary>
+
+    <p><strong>Is AuditExport a certification tool?</strong></p>
+    <p>
+      No. AuditExport generates technical evidence only.
+      Compliance decisions remain with auditors.
+    </p>
+
+    <p><strong>Does it upload or store data?</strong></p>
+    <p>
+      No. All evidence is generated locally.
+      Network access is limited to GitHub APIs when enabled.
+    </p>
+
+    <p><strong>Can it run in CI/CD?</strong></p>
+    <p>
+      Yes. AuditExport is designed for CI-based,
+      repeatable evidence generation.
+    </p>
+
+    <p><strong>What audits are supported?</strong></p>
+    <p>
+      v0.1.1 supports ISO/IEC 27001 GitHub evidence collection.
+    </p>
+  </details>
+
+  <!-- COLLAPSIBLE: WORKFLOW -->
+  <details class="card">
+    <summary>How AuditExport fits into an audit workflow</summary>
+
+    <p><strong>Before the audit</strong></p>
+    <ul>
+      <li>Generate evidence snapshots proactively</li>
+      <li>Reduce last-minute audit pressure</li>
+    </ul>
+
+    <p><strong>During the audit</strong></p>
+    <ul>
+      <li>Provide immutable, timestamped artifacts</li>
+      <li>Avoid manual screenshots</li>
+    </ul>
+
+    <p><strong>After the audit</strong></p>
+    <ul>
+      <li>Retain evidence for future audits</li>
+      <li>Support re-certification cycles</li>
+    </ul>
+  </details>
+
+  <!-- COLLAPSIBLE: INTEGRITY -->
+  <details class="card">
+    <summary>Release integrity & verification</summary>
     <pre>
 sha256sum auditexport-v0.1.1-macos.zip
 sha256sum auditexport-v0.1.1-linux-x86_64.zip
     </pre>
     <p>
-      Checksums are published alongside each release.
+      Verify checksums before execution to ensure
+      the binary has not been altered.
     </p>
-  </div>
+  </details>
 
-  <!-- Pricing -->
+  <!-- PRICING (ALWAYS VISIBLE) -->
   <div class="card">
     <h2>Pricing</h2>
     <p class="price">$79 — one-time license</p>
     <p>No subscriptions. No lock-in.</p>
-
-    <a
-      href="https://auditexport.lemonsqueezy.com/checkout"
-      target="_blank"
-      class="buy-btn"
-    >
+    <a href="https://auditexport.lemonsqueezy.com/checkout"
+       target="_blank"
+       class="buy-btn">
       Buy AuditExport v0.1.1
     </a>
   </div>
 
-  <!-- Refund + Contact -->
-  <div class="grid">
-    <div class="card">
-      <h2>Refunds</h2>
-      <p>
-        Refunds are available within <strong>7 days of purchase</strong>
-        if the software does not function as described.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>Contact</h2>
-      <p>
-        Support:  
-        <a href="mailto:support@auditexport.com">support@auditexport.com</a>
-      </p>
-    </div>
+  <!-- CONTACT -->
+  <div class="card">
+    <h2>Contact</h2>
+    <p>
+      Support:
+      <a href="mailto:support@auditexport.com">
+        support@auditexport.com
+      </a>
+    </p>
   </div>
 
 </div>
 
 <footer>
   <p>
-    AuditExport generates technical evidence only.  
-    It does not analyze compliance, provide legal advice,
-    or issue pass/fail judgments.
+    AuditExport generates technical evidence only.
+    It does not analyze compliance or issue certifications.
   </p>
   <p>© 2025 AuditExport. All rights reserved.</p>
 </footer>
