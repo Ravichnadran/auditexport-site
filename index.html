@@ -2,141 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AuditExport - Automated Compliance Evidence</title>
+  <title>AuditExport – Automated Compliance Evidence</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+  <!-- Clean system fonts (enterprise feel) -->
   <style>
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1e40af;
-      --bg-light: #f8fafc;
-      --text-main: #334155;
-      --text-dark: #0f172a;
-      --white: #ffffff;
-      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-    }
-
     body {
       margin: 0;
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg-light);
-      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue",
+                   Arial, sans-serif;
+      background: #f5f7fa;
+      color: #111827;
       line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      color: var(--white);
-      padding: 80px 20px 100px;
+      background: #111827;
+      color: #ffffff;
+      padding: 64px 20px;
       text-align: center;
-      position: relative;
     }
 
     header h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
     }
 
-    header .tagline {
-      font-size: 1.5rem;
-      color: #cbd5e1;
-      margin-bottom: 1.2rem;
-    }
-
-    header .description {
+    header p {
       max-width: 720px;
-      margin: 0 auto;
-      color: #94a3b8;
+      margin: 0.5rem auto 0;
       font-size: 1.1rem;
+      color: #d1d5db;
     }
 
     .container {
-      max-width: 1100px;
-      margin: -60px auto 60px;
+      max-width: 1000px;
+      margin: -40px auto 60px;
       padding: 0 20px;
     }
 
     .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 40px;
-      box-shadow: var(--shadow);
-      border: 1px solid #e2e8f0;
-      margin-bottom: 40px;
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      border: 1px solid #e5e7eb;
     }
 
     h2 {
-      color: var(--text-dark);
-      border-bottom: 2px solid #f1f5f9;
-      padding-bottom: 1rem;
-      margin-bottom: 1.5rem;
+      margin-top: 0;
+      font-size: 1.4rem;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
 
     ul {
-      list-style: none;
-      padding-left: 1.5rem;
+      padding-left: 1.2rem;
     }
 
     li {
-      margin-bottom: 0.75rem;
-      position: relative;
-    }
-
-    li::before {
-      content: "✓";
-      color: var(--primary);
-      font-weight: bold;
-      position: absolute;
-      left: -1.5rem;
+      margin-bottom: 0.5rem;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-      gap: 30px;
-    }
-
-    .price-card {
-      text-align: center;
-      border-top: 5px solid var(--primary);
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
     }
 
     .price {
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--text-dark);
-    }
-
-    .price-sub {
-      color: #64748b;
-      margin-bottom: 2rem;
+      font-size: 2rem;
+      font-weight: 600;
+      margin: 0.5rem 0;
     }
 
     .buy-btn {
-      padding: 16px 32px;
-      font-size: 1.1rem;
-      background: var(--primary);
-      color: #fff;
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 14px 24px;
+      font-size: 1rem;
+      background: #111827;
+      color: #ffffff;
       border: none;
-      border-radius: 8px;
       cursor: pointer;
+      text-decoration: none;
     }
 
     .buy-btn:hover {
-      background: var(--primary-dark);
+      background: #1f2937;
     }
 
     footer {
-      background: #fff;
-      border-top: 1px solid #e2e8f0;
       text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #64748b;
+      font-size: 0.85rem;
+      color: #6b7280;
+      padding: 30px 20px;
+    }
+
+    a {
+      color: #111827;
     }
   </style>
 </head>
@@ -145,42 +113,33 @@
 
 <header>
   <h1>AuditExport</h1>
-  <p class="tagline">Generate ISO/IEC 27001 GitHub audit evidence automatically.</p>
-  <p class="description">
-    A minimal CLI tool for engineering and compliance teams to produce
-    audit-ready technical evidence — fast, local, and deterministic.
+  <p>
+    Generate audit-ready technical evidence for ISO/IEC 27001  
+    directly from your GitHub repositories.
   </p>
 </header>
 
 <div class="container">
 
+  <!-- What it does -->
   <div class="card">
     <h2>What it does</h2>
     <ul>
       <li>Collects GitHub repository metadata using read-only access</li>
       <li>Exports immutable JSON evidence files</li>
-      <li>Generates summaries, metadata, and hashes</li>
-      <li>Packages evidence into an audit-ready ZIP</li>
+      <li>Generates summaries, metadata, and cryptographic hashes</li>
+      <li>Packages evidence into audit-ready ZIP files</li>
       <li>Runs locally — no SaaS, no data upload</li>
     </ul>
   </div>
 
-  <div class="card">
-    <h2>How it works</h2>
-    <ul>
-      <li>Download the CLI for your operating system</li>
-      <li>Create a read-only GitHub access token</li>
-      <li>Run a single command</li>
-      <li>Receive an audit-ready evidence ZIP</li>
-    </ul>
-  </div>
-
+  <!-- Supported + Roadmap -->
   <div class="grid">
     <div class="card">
       <h2>Supported in v0.1.1</h2>
       <ul>
-        <li>ISO/IEC 27001</li>
-        <li>GitHub evidence collection</li>
+        <li>ISO/IEC 27001 evidence generation</li>
+        <li>GitHub evidence collection (read-only)</li>
         <li>Linux (x86_64) and macOS</li>
         <li>Local execution only</li>
       </ul>
@@ -190,34 +149,42 @@
       <h2>Roadmap</h2>
       <ul>
         <li>GitLab and Bitbucket collectors</li>
-        <li>AWS evidence collectors</li>
-        <li>Additional audit standards</li>
+        <li>AWS and cloud infrastructure evidence</li>
+        <li>Additional audit and compliance standards</li>
       </ul>
     </div>
   </div>
 
-  <div class="card price-card">
-    <h2>Get Started</h2>
-    <div class="price">$79</div>
-    <p class="price-sub">One-time license. No subscriptions. No lock-in.</p>
-    <a href="https://auditexport.lemonsqueezy.com/checkout" target="_blank">
-      <button class="buy-btn">Buy AuditExport</button>
+  <!-- Pricing -->
+  <div class="card">
+    <h2>Pricing</h2>
+    <p class="price">$79 — one-time license</p>
+    <p>No subscriptions. No lock-in.</p>
+
+    <a
+      href="https://auditexport.lemonsqueezy.com/checkout"
+      target="_blank"
+      class="buy-btn"
+    >
+      Buy AuditExport v0.1.1
     </a>
   </div>
 
+  <!-- Refund + Contact -->
   <div class="grid">
     <div class="card">
       <h2>Refunds</h2>
       <p>
-        Refunds available within <strong>7 days</strong> if the software does not
-        function as described.
+        Refunds are available within <strong>7 days of purchase</strong>
+        if the software does not function as described.
       </p>
     </div>
 
     <div class="card">
       <h2>Contact</h2>
       <p>
-        Email: <a href="mailto:support@auditexport.com"><strong>support@auditexport.com</strong></a>
+        Support:  
+        <a href="mailto:support@auditexport.com">support@auditexport.com</a>
       </p>
     </div>
   </div>
@@ -225,8 +192,11 @@
 </div>
 
 <footer>
-  <p>AuditExport generates technical evidence only.</p>
-  <p>It does not analyze compliance, provide legal advice, or issue pass/fail judgments.</p>
+  <p>
+    AuditExport generates technical evidence only.  
+    It does not analyze compliance, provide legal advice,
+    or issue pass/fail judgments.
+  </p>
   <p>© 2025 AuditExport. All rights reserved.</p>
 </footer>
 
