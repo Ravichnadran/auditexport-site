@@ -2,36 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AuditExport – Automated Compliance Evidence</title>
+  <title>AuditExport – ISO/IEC 27001 Evidence Automation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue",
-        Arial, sans-serif;
+        Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
       background: #f5f7fa;
       color: #111827;
-      line-height: 1.65;
+      line-height: 1.6;
     }
+
+    .nav {
+      background: #111827;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav a {
+      color: #e5e7eb;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 0.95rem;
+    }
+    .nav a:hover { text-decoration: underline; }
 
     header {
       background: #111827;
       color: #ffffff;
-      padding: 72px 20px;
+      padding: 56px 20px 72px;
       text-align: center;
     }
-
     header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.75rem;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
       font-weight: 600;
     }
-
     header p {
-      max-width: 760px;
-      margin: 0 auto;
+      max-width: 780px;
+      margin: 0.5rem auto 0;
       font-size: 1.15rem;
       color: #d1d5db;
     }
@@ -44,11 +56,11 @@
 
     .card {
       background: #ffffff;
-      border-radius: 8px;
+      border-radius: 6px;
       padding: 32px;
-      margin-bottom: 28px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      margin-bottom: 32px;
       border: 1px solid #e5e7eb;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
     h2 {
@@ -59,13 +71,8 @@
       margin-bottom: 1rem;
     }
 
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    li {
-      margin-bottom: 0.55rem;
-    }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.6rem; }
 
     pre {
       background: #0f172a;
@@ -76,33 +83,8 @@
       font-size: 0.9rem;
     }
 
-    details {
-      margin-bottom: 24px;
-    }
-
-    summary {
-      cursor: pointer;
-      font-size: 1.1rem;
-      font-weight: 600;
-      list-style: none;
-    }
-
-    summary::marker {
-      display: none;
-    }
-
-    summary::after {
-      content: "▾";
-      float: right;
-      color: #6b7280;
-    }
-
-    details[open] summary::after {
-      content: "▴";
-    }
-
     .price {
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 600;
       margin: 0.5rem 0;
     }
@@ -110,19 +92,14 @@
     .buy-btn {
       display: inline-block;
       margin-top: 1rem;
-      padding: 14px 26px;
+      padding: 14px 24px;
       font-size: 1rem;
       background: #111827;
       color: #ffffff;
-      border: none;
-      cursor: pointer;
       text-decoration: none;
       border-radius: 4px;
     }
-
-    .buy-btn:hover {
-      background: #1f2937;
-    }
+    .buy-btn:hover { background: #1f2937; }
 
     footer {
       text-align: center;
@@ -130,197 +107,105 @@
       color: #6b7280;
       padding: 32px 20px;
     }
-
-    a {
-      color: #111827;
-    }
   </style>
 </head>
 
 <body>
 
+<div class="nav">
+  <strong style="color:#fff;">AuditExport</strong>
+  <div>
+    <a href="docs.html">Documentation</a>
+    <a href="https://auditexport.lemonsqueezy.com/checkout" target="_blank">Buy</a>
+  </div>
+</div>
+
 <header>
   <h1>AuditExport</h1>
   <p>
-    Generate audit-ready technical evidence for ISO/IEC 27001
-    directly from your GitHub repositories — locally, securely,
-    and deterministically.
+    Generate audit-ready technical evidence for ISO/IEC&nbsp;27001
+    directly from your GitHub repositories — locally, deterministically,
+    and without SaaS.
   </p>
 </header>
 
 <div class="container">
 
-  <!-- CORE VALUE -->
   <div class="card">
     <h2>What AuditExport does</h2>
     <ul>
-      <li>Collects GitHub repository evidence using read-only access</li>
+      <li>Collects GitHub repository metadata using read-only access</li>
       <li>Generates immutable JSON evidence and summaries</li>
-      <li>Produces cryptographic hashes for integrity verification</li>
-      <li>Packages outputs into audit-ready ZIP files</li>
-      <li>Runs locally — no SaaS, no data uploads</li>
+      <li>Produces cryptographic hashes for verification</li>
+      <li>Packages outputs into audit-ready ZIP archives</li>
+      <li>Runs locally or in CI — no data upload</li>
     </ul>
   </div>
 
-  <!-- CLI EXAMPLE (VISIBLE) -->
   <div class="card">
-    <h2>CLI usage</h2>
+    <h2>Who AuditExport is for</h2>
+    <ul>
+      <li>CTOs and Engineering Leads preparing ISO/IEC 27001 audits</li>
+      <li>DevOps and Platform teams responsible for audit evidence</li>
+      <li>Security and compliance engineers</li>
+      <li>SaaS companies onboarding enterprise customers</li>
+      <li>Consultants assisting clients with compliance readiness</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>What it is — and what it is not</h2>
+    <ul>
+      <li><strong>Is:</strong> A technical evidence generation tool</li>
+      <li><strong>Is:</strong> Deterministic, local, repeatable</li>
+      <li><strong>Is not:</strong> A certification authority</li>
+      <li><strong>Is not:</strong> A SaaS platform</li>
+      <li><strong>Is not:</strong> Legal or compliance advice</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>How it fits into an audit workflow</h2>
+    <ul>
+      <li><strong>Before audit:</strong> Generate evidence snapshots</li>
+      <li><strong>During audit:</strong> Share immutable artifacts</li>
+      <li><strong>After audit:</strong> Retain evidence</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>CLI usage example</h2>
     <pre>
-./auditexport \
+auditexport \
   --audit ISO27001 \
   --github \
   --output ./evidence
     </pre>
-    <p>
-      The command produces deterministic, locally generated
-      audit artifacts suitable for auditor review.
-    </p>
   </div>
 
-  <!-- COLLAPSIBLE: OUTPUT -->
-  <details class="card">
-    <summary>Sample output structure</summary>
-    <pre>
-evidence/
-├── metadata/
-│   └── run_metadata.json
-├── github/
-│   ├── repositories.json
-│   ├── branches.json
-│   └── contributors.json
-├── summary.txt
-├── hashes.txt
-└── evidence.zip
-    </pre>
-    <p>
-      All outputs are timestamped, immutable,
-      and generated locally.
-    </p>
-  </details>
-
-  <!-- COLLAPSIBLE: SECURITY -->
-  <details class="card">
-    <summary>Security & trust model</summary>
+  <div class="card">
+    <h2>Security & trust model</h2>
     <ul>
-      <li>Runs entirely on your machine or CI environment</li>
-      <li>Uses GitHub read-only tokens only</li>
-      <li>No credentials stored on disk</li>
-      <li>No third-party data transmission</li>
-      <li>Minimal security review footprint</li>
+      <li>Local or CI execution only</li>
+      <li>Read-only GitHub tokens</li>
+      <li>No credential storage</li>
+      <li>No external data transmission</li>
     </ul>
-  </details>
+  </div>
 
-  <!-- COLLAPSIBLE: WHO -->
-  <details class="card">
-    <summary>Who should use AuditExport</summary>
-    <ul>
-      <li>Engineering teams preparing for ISO/IEC 27001 audits</li>
-      <li>DevOps teams producing repeatable audit evidence</li>
-      <li>SaaS companies onboarding enterprise customers</li>
-      <li>Security & compliance engineers</li>
-      <li>Consultants supporting audit readiness</li>
-    </ul>
-    <p>
-      AuditExport is designed for organizations that
-      already have controls in place and need
-      reliable technical evidence.
-    </p>
-  </details>
-
-  <!-- COLLAPSIBLE: FAQ -->
-  <details class="card">
-    <summary>Frequently asked questions</summary>
-
-    <p><strong>Is AuditExport a certification tool?</strong></p>
-    <p>
-      No. AuditExport generates technical evidence only.
-      Compliance decisions remain with auditors.
-    </p>
-
-    <p><strong>Does it upload or store data?</strong></p>
-    <p>
-      No. All evidence is generated locally.
-      Network access is limited to GitHub APIs when enabled.
-    </p>
-
-    <p><strong>Can it run in CI/CD?</strong></p>
-    <p>
-      Yes. AuditExport is designed for CI-based,
-      repeatable evidence generation.
-    </p>
-
-    <p><strong>What audits are supported?</strong></p>
-    <p>
-      v0.1.1 supports ISO/IEC 27001 GitHub evidence collection.
-    </p>
-  </details>
-
-  <!-- COLLAPSIBLE: WORKFLOW -->
-  <details class="card">
-    <summary>How AuditExport fits into an audit workflow</summary>
-
-    <p><strong>Before the audit</strong></p>
-    <ul>
-      <li>Generate evidence snapshots proactively</li>
-      <li>Reduce last-minute audit pressure</li>
-    </ul>
-
-    <p><strong>During the audit</strong></p>
-    <ul>
-      <li>Provide immutable, timestamped artifacts</li>
-      <li>Avoid manual screenshots</li>
-    </ul>
-
-    <p><strong>After the audit</strong></p>
-    <ul>
-      <li>Retain evidence for future audits</li>
-      <li>Support re-certification cycles</li>
-    </ul>
-  </details>
-
-  <!-- COLLAPSIBLE: INTEGRITY -->
-  <details class="card">
-    <summary>Release integrity & verification</summary>
-    <pre>
-sha256sum auditexport-v0.1.1-macos.zip
-sha256sum auditexport-v0.1.1-linux-x86_64.zip
-    </pre>
-    <p>
-      Verify checksums before execution to ensure
-      the binary has not been altered.
-    </p>
-  </details>
-
-  <!-- PRICING (ALWAYS VISIBLE) -->
   <div class="card">
     <h2>Pricing</h2>
     <p class="price">$79 — one-time license</p>
     <p>No subscriptions. No lock-in.</p>
-    <a href="https://auditexport.lemonsqueezy.com/checkout"
-       target="_blank"
-       class="buy-btn">
+    <a href="https://auditexport.lemonsqueezy.com/checkout" target="_blank" class="buy-btn">
       Buy AuditExport v0.1.1
     </a>
-  </div>
-
-  <!-- CONTACT -->
-  <div class="card">
-    <h2>Contact</h2>
-    <p>
-      Support:
-      <a href="mailto:support@auditexport.com">
-        support@auditexport.com
-      </a>
-    </p>
   </div>
 
 </div>
 
 <footer>
-  <p>
-    AuditExport generates technical evidence only.
-    It does not analyze compliance or issue certifications.
-  </p>
+  <p>AuditExport generates technical evidence only.</p>
   <p>© 2025 AuditExport. All rights reserved.</p>
 </footer>
 
