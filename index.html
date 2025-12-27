@@ -54,6 +54,7 @@
             font-size: 1.25rem;
             color: #fff;
             letter-spacing: -0.025em;
+            text-decoration: none;
         }
 
         .nav-links a {
@@ -262,6 +263,36 @@
             background: #fff;
         }
 
+        /* Security Link Button Style */
+        .security-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            border: 1px solid var(--border-color);
+            border-radius: 9999px; /* Pill shape */
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            background-color: #fff;
+            margin: 0.5rem 0;
+        }
+
+        .security-link:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            background-color: #f0f9ff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transform: translateY(-1px);
+        }
+
+        .security-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2.5rem;
@@ -280,7 +311,7 @@
 <body>
 
 <div class="nav">
-    <div class="nav-brand">AuditExport</div>
+    <a href="index.html" class="nav-brand">AuditExport</a>
     <div class="nav-links">
         <a href="docs.html">Documentation</a>
         <a href="https://auditexport.lemonsqueezy.com/checkout" target="_blank" class="nav-cta">Buy Now</a>
@@ -368,6 +399,9 @@
         <div class="card pricing-card full-width">
             <h2>Pricing</h2>
             <div class="price">$79</div>
+            <p style="color: #059669; font-weight: 500; margin-top: -0.5rem; margin-bottom: 1.5rem;">
+                Used by teams preparing real ISO/IEC 27001 audits.
+            </p>
             <p class="price-sub">One-time license. No subscriptions. No lock-in.</p>
             <a href="https://auditexport.lemonsqueezy.com/checkout" class="buy-btn">Buy AuditExport</a>
         </div>
@@ -387,6 +421,14 @@
 </div>
 
 <footer>
+    <p style="margin: 1.5rem 0;">
+        <a href="security.html" class="security-link">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+            </svg>
+            Security Model
+        </a>
+    </p>
     <p>AuditExport generates technical evidence only.</p>
     <p>© 2025 AuditExport. All rights reserved.</p>
 </footer>
